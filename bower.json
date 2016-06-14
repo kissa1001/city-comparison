@@ -1,0 +1,17 @@
+{
+  "name": "city-comparision",
+  "description": "evaluation of different cities",
+  "main": "index.js",
+  "authors": [
+    "kissa"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
