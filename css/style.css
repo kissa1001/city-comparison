@@ -1,0 +1,185 @@
+body{
+  /*background: linear-gradient(to left, rgba(236,233,230,0.8), rgba(255,255,255,0.8)),url("../img/background.jpg") ;*/
+
+
+background: #ECE9E6; /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #ECE9E6 , #FFFFFF); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #ECE9E6 , #FFFFFF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        
+  font-family: 'Cutive', serif;   
+}
+.header{
+  font-family: 'Niconne', cursive;
+  font-size: 6em;
+}
+.main{
+  font-family: 'Cutive', serif;
+  padding-top: 2em;
+}
+.main label{
+  font-size: 1.7em;
+}
+.button{
+  margin-top:2em;
+}
+.my-btn{
+  width: 12em;
+  height: 4em;
+  font-family: 'Cutive', serif;
+  border:none;
+  color:#fff;
+  background: #FA5858;
+  transition-timing-function: linear;
+  -webkit-transition: 0.7s;
+  -moz-transition: 0.7s;
+  -ms-transition: 0.7s;
+  -o-transition: 0.7s;
+  transition: 0.7s;
+  opacity:0.9;
+}
+.my-btn:hover{
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  opacity:1;
+  -moz-transform: translate(0px, -7px);
+  -webkit-transform: translate(0px, -7px);
+  -o-transform: translate(0px, -7px);
+  -ms-transform: translate(0px, -7px);
+  transform: translate(0px, -7px);
+}
+.cityName{
+  font-family: 'Niconne', cursive;
+  font-size: 2.5em;
+  background:rgba(236,233,230,1);
+}
+.population{
+  margin-top:1em;
+}
+.stat-text{
+  font-family: 'Niconne', cursive;
+  font-size: 2em;
+  background:rgba(236,233,230,1);
+}
+.avg-score{
+  color:#FA5858;
+}
+.footer{
+  position:absolute;
+  bottom:1.5em;
+  left:0;
+  right:0;
+  font-family: 'Niconne', cursive;
+  font-size: 2em;
+}
+.map{
+  margin-right: 0px;
+  margin-left: 0px;
+  padding-right: 0px;
+  padding-left: 0px;
+}
+.footer i{
+  color:#FA5858;
+}
+
+.tp-autocomplete {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 25em;
+}
+.tp-ac__input {
+  width: 100%;
+  border: none;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-left: 0.7em;
+  border-radius: 0;
+  background-color: #fafafa;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.35);
+  font-size: 1.3em;
+  -webkit-appearance: none;
+  text-overflow: ellipsis; }
+  .tp-ac__input::-webkit-input-placeholder {
+    color: #ccc;
+    padding-top: 0.7em;
+    -webkit-font-smoothing: antialiased; }
+  .tp-ac__input::-moz-placeholder {
+    padding-top: 0.7em;
+    color: #ccc;
+    -webkit-font-smoothing: antialiased; }
+  .tp-ac__input:-ms-input-placeholder {
+    padding-top: 0.7em;
+    color: #ccc;
+    -webkit-font-smoothing: antialiased; }
+  .tp-ac__input::placeholder {
+    padding-top: 0.7em;
+    color: #ccc;
+    -webkit-font-smoothing: antialiased; }
+  .tp-ac__input:focus {
+    outline: none; }
+  .tp-ac__input::-ms-clear {
+    display: none; }
+  .spinner .tp-ac__input {
+    padding-right: 1.5em;
+    margin-right: -1.5em; }
+
+.tp-ac__list {
+  font-size: 1.3em;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  margin: 0;
+  padding-left: 0;
+  list-style-type: none;
+  color: #333;
+  text-align: left;
+  background-color: #fff;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.35);
+  }
+
+.tp-ac__item {
+  overflow: hidden;
+  padding: 0.4em 0.7em;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
+  .tp-ac__item:hover, .tp-ac__item.is-active {
+    background-color: #ddd; }
+  .tp-ac__item.no-results, .tp-ac__item.no-results:hover {
+    cursor: default;
+    background-color: #fff; }
+  .tp-ac__item span {
+    color: #4a4a4a;
+    font-weight: bold; }
+
+@-webkit-keyframes spinner {
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+
+@keyframes spinner {
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+
+.spinner:before {
+  position: absolute;
+  top: 50%;
+  right: 0.5em;
+  width: 1em;
+  height: 1em;
+  margin-top: -0.625em;
+  margin-left: -0.625em;
+  content: '';
+  -webkit-animation: spinner 1s linear infinite;
+          animation: spinner 1s linear infinite;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  border-top-color: rgba(0, 0, 0, 0.6);
+  border-radius: 50%; }
