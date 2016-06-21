@@ -9,6 +9,7 @@ background: linear-gradient(to left, #ECE9E6 , #FFFFFF); */
   background: #ECE9E6;
 background: -webkit-linear-gradient(to left, #ECE9E6 , #FFFFFF); 
 background: linear-gradient(to left, #ECE9E6 , #FFFFFF);
+font-family: 'Cutive', serif;  
 }
 .header{
   font-family: 'Niconne', cursive;
@@ -98,6 +99,7 @@ background: linear-gradient(to left, #ECE9E6 , #FFFFFF);
   padding-left: 1em;
 }
 .summary{
+  font-family: 'Cutive', serif;  
   text-align: center;
   font-size: 1.5em;
   margin-top: 2.2em;
