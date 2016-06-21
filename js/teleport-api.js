@@ -8,7 +8,7 @@ angular.module('city-comp')
   return TeleportAutocomplete.init('.my-input1');
 });
 angular.module('city-comp')
-.service('teleportService',['$http', '$q',function($http, $q){
+.service('teleportAPI',['$http', '$q',function($http, $q){
 
     this.getCityInfo = function(uaSlug){
       var urlBase = "https://api.teleport.org/api/";

@@ -10,29 +10,40 @@
 	<link href='https://fonts.googleapis.com/css?family=Niconne|Cutive' rel='stylesheet' type='text/css'>
 </head>
 <body ng-app="city-comp">
-	<div class="container" ng-controller = "mainCtrl">
+	<div class="my-app" ng-controller = "mainCtrl">
 		<div class="heading text-center">
 			<h1 class="header">Cities Battle</h1>
 		</div>
-		<div class="main">
-			<div class="row" ng-hide = "filledCity">
-				<div class="col-md-6">
-					<div class="form-group text-center">
-						<label>City 1:</label>
-						<input type="text" class="my-input" name="field" ng-model="city1" placeholder="Charlotte,etc..." tabindex="1" autocomplete="off">
-					</div>
+		<div class="row cities-input" ng-hide = "filledCity">
+			<div class="col-md-6">
+				<div class="form-group text-center">
+					<label>City 1:</label>
+					<input type="text" class="my-input" name="field" ng-model="city1" placeholder="Charlotte,etc..." tabindex="1" autocomplete="off" required>
 				</div>
-				<div class="col-md-6">
-					<div class="form-group text-center">
-						<label>City 2:</label>
-						<input type="text" class="my-input1" ng-model="city2" name="field" placeholder="San Francisco,etc..." tabindex="1" autocomplete="off">
-					</div>
-				</div>
-				<div class="footer text-center">
-					<p>Made with <i class="fa fa-heart" aria-hidden="true"></i> by Lina!</p>
+				<div class="alert alert-danger" ng-show="error1">
+  					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  					<strong>Sorry!</strong> This city is not in our database yet. Please pick another city to compare...
 				</div>
 			</div>
-			<div class="result" ng-show="filledCity">
+			<div class="col-md-6">
+				<div class="city-form form-group text-center">
+					<label>City 2:</label>
+					<input type="text" class="my-input1" ng-model="city2" name="field" placeholder="San Francisco,etc..." tabindex="1" autocomplete="off" required>
+				</div>
+				<div class="alert alert-danger" ng-show="error2">
+  					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  					<strong>Sorry!</strong> This city is not in our database yet. Please pick another city to compare...
+				</div>
+			</div>
+			<div class="button text-center">
+				<button class="my-btn" ng-show="!filledCity&&validCity1&&validCity2" ng-click="compare()">Compare</button>
+			</div>
+			<div class="footer text-center">
+				<p>Made with <i class="fa fa-heart" aria-hidden="true"></i> by Lina!</p>
+			</div>
+		</div>
+		<div class="main" ng-show="filledCity">
+			<div class="result container" >
 				<div class="maps">
 					<img class="img-responsive img-thumbnail map" src="{{city1Map}}" alt="city1Map">
 					<img class="img-responsive img-thumbnail map" src="https://maps.googleapis.com/maps/api/staticmap?size=640x250&maptype=roadmap\ &markers=size:mid%7Ccolor:red%7C{{city1Basic.name}},{{city1Basic.admin1DivisionCode}}%7C{{city2Basic.name}},{{city2Basic.admin1DivisionCode}}&key=AIzaSyBD1-sGnREhhLAout5UUgMw4CihhLJmGPA" alt="cityMap">
@@ -53,7 +64,7 @@
 					</div>
 				</div>
 				<div class="row cityStats">
-					<h3 class="stat-text text-center">Statistics</h3>
+					<h3 class="section-header text-center">Statistics</h3>
 					<div class="col-sm-6">
 						<div class="stats" ng-repeat="score in city1Info.categories track by $index">
 							<p>{{score.name}}</p>
@@ -63,7 +74,7 @@
 								</div>
 							</div>
 						</div>
-						<h4 class="avg-score">Average score: {{average(city1Info.categories)}}%</h4>
+						<h4 class="avg-score" ng-class="{'winner':average(city1Info.categories)>average(city2Info.categories)}">Average score: {{average(city1Info.categories)}}%</h4>
 					</div>
 					<div class="col-sm-6">
 						<div class="stats" ng-repeat="score in city2Info.categories track by $index">
@@ -74,14 +85,76 @@
 								</div>
 							</div>
 						</div>
-						<h4 class="avg-score">Average score: {{average(city2Info.categories)}}%</h4>
+						<h4 class="avg-score" ng-class="{'winner':average(city2Info.categories)>average(city1Info.categories)}">Average score: {{average(city2Info.categories)}}%</h4>
 					</div>
 				</div>
+				<h4 class="summary">Due to statistics of teleport.org {{winner}} is better city than {{looser}}!</h4>
+				<div class="row cityPlaces">
+					<h3 class="section-header text-center">Things to do in {{winner}}</h3>
+					<div class="places-box">
+						<div class="places-info" ng-repeat="place in winnerPlaces track by $index">
+							<div class="row">
+								<div class="col-sm-8 main-attributes">
+									<div class="row">
+										<div class="col-sm-offset-2 col-sm-2 media-ava">
+											<img class="img-thumbnail" src="{{place.image_url}}" alt="place-img">
+										</div>
+										<div class="col-sm-8 media-story">
+											<h5 class="title"><a href="{{place.url}}" target="_blank">{{place.name}}</a></h5>
+											<h6 class="raiting">Rating: {{place.rating}}<span class="reviews">- {{place.review_count}} reviews.</span></h6>
+											<span class="categories" ng-repeat="category in place.categories track by $index">#{{category[0]}}</span>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-4 secondary-attributes">
+									<address>
+										{{place.location.address[0]}}
+										<br>
+										{{place.location.city}},{{place.location.state_code}}
+									</address>
+									<span class="phone">Phone: {{place.display_phone}}</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row cityPhotos">
+					<h3 class="section-header text-center">Photos</h3>
+					<div class="col-sm-6 photos-box">
+						<h4 class="photos-city-name">{{city1Basic.title}}</h4>
+						<div ng-repeat="photo in city1Photos" class="inline-block">
+							<img class="img-responsive img-thumbnail" ng-src="https://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}.jpg" alt="city1Photos">
+						</div>
+					</div>
+					<div class="col-sm-6 photos-box">
+						<h4 class="photos-city-name">{{city2Basic.title}}</h4>
+						<div ng-repeat="photo in city2Photos" class="inline-block">
+							<img class="img-responsive img-thumbnail" ng-src="https://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}.jpg" alt="city2Photos">
+						</div>
+					</div>
+				</div>
+				<div class="row cityVideos">
+					<h3 class="section-header text-center">Videos</h3>
+					<div class="col-sm-6 photos-box">
+						<h4 class="photos-city-name">{{city1Basic.title}}</h4>
+						<div ng-repeat="video in city1Videos">
+							<iframe class="embed-responsive-item" ng-src="{{ trustSrc(embedUrl + video.id.videoId) }}" frameborder="0" width="480" height="390"></iframe>
+						</div>
+					</div>
+					<div class="col-sm-6 photos-box">
+						<h4 class="photos-city-name">{{city2Basic.title}}</h4>
+						<div ng-repeat="video in city2Videos">
+							<iframe class="embed-responsive-item" ng-src="{{ trustSrc(embedUrl + video.id.videoId) }}" frameborder="0" width="480" height="390"></iframe>
+						</div>
+					</div>
+				</div>
+				<div class="button text-center">
+					<button class="my-btn" ng-show="filledCity" ng-click="reset()">Reset <i class="fa fa-refresh fa-spin" aria-hidden="true"></i></button>
+				</div>
+				<div class="footer-second-page text-center">
+					<p>Made with <i class="fa fa-heart" aria-hidden="true"></i> by Lina!</p>
+				</div>
 			</div>
-		</div>
-		<div class="button text-center">
-			<button class="my-btn" ng-show="!filledCity" ng-click="compare()">Compare</button>
-			<button class="my-btn" ng-show="filledCity" ng-click="reset()">Reset <i class="fa fa-refresh fa-spin" aria-hidden="true"></i></button>
 		</div>
 	</div>
 </div>
@@ -93,9 +166,13 @@
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="/bower_components/oauth-signature/dist/oauth-signature.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="js/teleport-autocomplete.js"></script>
 <script src="js/app.js"></script>
 <script src="js/teleport-api.js"></script>
+<script src="js/yelp-api.js"></script>
+<script src="js/flickr-api.js"></script>
+<script src="js/youtube-api.js"></script>
 </body>
 </html>

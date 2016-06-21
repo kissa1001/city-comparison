@@ -1,30 +1,39 @@
 body{
-  /*background: linear-gradient(to left, rgba(236,233,230,0.8), rgba(255,255,255,0.8)),url("../img/background.jpg") ;*/
-
-
-background: #ECE9E6; /* fallback for old browsers */
-background: -webkit-linear-gradient(to left, #ECE9E6 , #FFFFFF); /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to left, #ECE9E6 , #FFFFFF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        
+  background: linear-gradient(to left, rgba(236,233,230,0.8), rgba(255,255,255,0.8)),url("../img/background.jpg") ;
   font-family: 'Cutive', serif;   
+  /*  background: #ECE9E6;
+background: -webkit-linear-gradient(to left, #ECE9E6 , #FFFFFF); 
+background: linear-gradient(to left, #ECE9E6 , #FFFFFF); */
+}
+.main{
+  background: #ECE9E6;
+background: -webkit-linear-gradient(to left, #ECE9E6 , #FFFFFF); 
+background: linear-gradient(to left, #ECE9E6 , #FFFFFF);
 }
 .header{
   font-family: 'Niconne', cursive;
   font-size: 6em;
 }
-.main{
+.cities-input{
   font-family: 'Cutive', serif;
   padding-top: 2em;
 }
-.main label{
+.cities-input label{
   font-size: 1.7em;
 }
 .button{
   margin-top:2em;
 }
+.alert{
+  max-width: 500px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 2em;
+}
 .my-btn{
   width: 12em;
   height: 4em;
+  margin-top: 2em;
   font-family: 'Cutive', serif;
   border:none;
   color:#fff;
@@ -58,13 +67,53 @@ background: linear-gradient(to left, #ECE9E6 , #FFFFFF); /* W3C, IE 10+/ Edge, F
 .population{
   margin-top:1em;
 }
-.stat-text{
+.section-header{
   font-family: 'Niconne', cursive;
   font-size: 2em;
   background:rgba(236,233,230,1);
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
 }
 .avg-score{
   color:#FA5858;
+}
+.places-box{
+  overflow: scroll;
+  width:auto;
+  height: 300px;
+}
+.photos-box{
+  overflow: scroll;
+  width:auto;
+  height: 500px;
+}
+.winner{
+  border-bottom: 1px solid #000;
+  border-top: 1px solid #000;
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+  padding-top:1em;
+  padding-bottom: 1em;
+  padding-right:1em;
+  padding-left: 1em;
+}
+.summary{
+  text-align: center;
+  font-size: 1.5em;
+  margin-top: 2.2em;
+}
+.title{
+  font-size:1.2em;
+}
+
+.places-info{
+  margin-bottom: 0.5em;
+}
+.map{
+  margin-right: 0px;
+  margin-left: 0px;
+  padding-right: 0px;
+  padding-left: 0px;
 }
 .footer{
   position:absolute;
@@ -74,16 +123,15 @@ background: linear-gradient(to left, #ECE9E6 , #FFFFFF); /* W3C, IE 10+/ Edge, F
   font-family: 'Niconne', cursive;
   font-size: 2em;
 }
-.map{
-  margin-right: 0px;
-  margin-left: 0px;
-  padding-right: 0px;
-  padding-left: 0px;
-}
 .footer i{
   color:#FA5858;
 }
-
+.footer-second-page{
+  margin-top: 1em;
+  margin-bottom: 2.5em;
+  font-family: 'Niconne', cursive;
+  font-size: 2em;
+}
 .tp-autocomplete {
   position: relative;
   margin-left: auto;
