@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>City Comparison</title>
 	<link rel="shortcut icon" href="img/logo.png"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="css/style.css" rel="stylesheet">
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
@@ -64,28 +65,28 @@
 					</div>
 				</div>
 				<div class="row cityStats">
-					<h3 class="section-header text-center">Statistics</h3>
+					<h3 class="section-header text-center">Statistics (Score out of 10)</h3>
 					<div class="col-sm-6">
 						<div class="stats" ng-repeat="score in city1Info.categories track by $index">
 							<p>{{score.name}}</p>
 							<div class="progress">
-								<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{percentage(score.score_out_of_10)}}" aria-valuemin="0" aria-valuemax="100" style="width: {{percentage(score.score_out_of_10)}}%;">
-									<span>{{percentage(score.score_out_of_10)}}%</span>
+								<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{score.score_out_of_10}}" aria-valuemin="0" aria-valuemax="10" style="width: {{percentage(score.score_out_of_10)}}%;">
+									<span>{{round(score.score_out_of_10)}}</span>
 								</div>
 							</div>
 						</div>
-						<h4 class="avg-score" ng-class="{'winner':average(city1Info.categories)>average(city2Info.categories)}">Average score: {{average(city1Info.categories)}}%</h4>
+						<h4 class="avg-score" ng-class="{'winner':average(city1Info.categories)>average(city2Info.categories)}">Average score: {{average(city1Info.categories)}}</h4>
 					</div>
 					<div class="col-sm-6">
 						<div class="stats" ng-repeat="score in city2Info.categories track by $index">
 							<p>{{score.name}}</p>
 							<div class="progress">
-								<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{percentage(score.score_out_of_10)}}" aria-valuemin="0" aria-valuemax="100" style="width: {{percentage(score.score_out_of_10)}}%;">
-									<span>{{percentage(score.score_out_of_10)}}%</span>
+								<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{score.score_out_of_10}}" aria-valuemin="0" aria-valuemax="10" style="width: {{percentage(score.score_out_of_10)}}%;">
+									<span>{{round(score.score_out_of_10)}}</span>
 								</div>
 							</div>
 						</div>
-						<h4 class="avg-score" ng-class="{'winner':average(city2Info.categories)>average(city1Info.categories)}">Average score: {{average(city2Info.categories)}}%</h4>
+						<h4 class="avg-score" ng-class="{'winner':average(city2Info.categories)>average(city1Info.categories)}">Average score: {{average(city2Info.categories)}}</h4>
 					</div>
 				</div>
 				<h4 class="summary">Due to statistics of teleport.org {{winner}} is better city than {{looser}}!</h4>
@@ -138,13 +139,13 @@
 					<div class="col-sm-6 photos-box">
 						<h4 class="photos-city-name">{{city1Basic.title}}</h4>
 						<div ng-repeat="video in city1Videos">
-							<iframe class="embed-responsive-item" ng-src="{{ trustSrc(embedUrl + video.id.videoId) }}" frameborder="0" width="480" height="390"></iframe>
+							<iframe class="embed-responsive-item" ng-src="{{ trustSrc(embedUrl + video.id.videoId) }}" frameborder="1"></iframe>
 						</div>
 					</div>
 					<div class="col-sm-6 photos-box">
 						<h4 class="photos-city-name">{{city2Basic.title}}</h4>
 						<div ng-repeat="video in city2Videos">
-							<iframe class="embed-responsive-item" ng-src="{{ trustSrc(embedUrl + video.id.videoId) }}" frameborder="0" width="480" height="390"></iframe>
+							<iframe class="embed-responsive-item" ng-src="{{ trustSrc(embedUrl + video.id.videoId) }}" frameborder="1"></iframe>
 						</div>
 					</div>
 				</div>
