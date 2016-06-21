@@ -42,6 +42,8 @@ angular.module('city-comp')
 		}
 		$scope.reset = function(){
 			$scope.filledCity = false;
+			$scope.city1 = "";
+			$scope.city2 = "";
 		}
 		autocomplete1.on('change', function(value) {
 			console.log(value);
