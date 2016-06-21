@@ -3,6 +3,7 @@ angular.module('city-comp',['ngSanitize']);
 angular.module('city-comp')
 .controller('mainCtrl',['$scope', 'autocomplete1', 'autocomplete2','teleportAPI','$sce','yelpAPI','flickrAPI','youtubeAPI',
 	function($scope, autocomplete1, autocomplete2, teleportAPI,$sce,yelpAPI,flickrAPI,youtubeAPI){
+		//Helper functions and variables
 		$scope.embedUrl = "http://www.youtube.com/embed/";
 		$scope.renderHtml = function (htmlCode) {
 			return $sce.trustAsHtml(htmlCode);
@@ -11,8 +12,12 @@ angular.module('city-comp')
 			return $sce.trustAsResourceUrl(src);
 		};
 		$scope.percentage = function(score){
-			return ((score/10)*100).toFixed(2);
+			return (score/10)*100;
 		}
+		$scope.round = function(score){
+			return (score).toFixed(2);
+		}
+		//Compare on click
 		$scope.compare = function(){
 			$scope.filledCity = true;
 			$scope.average = function(array){
@@ -21,7 +26,7 @@ angular.module('city-comp')
 					sum += array[i].score_out_of_10;
 					avg = sum/array.length;
 				}
-				return ((avg/10)*100).toFixed(2);
+				return (avg).toFixed(2);
 			}
 			if($scope.average($scope.city1Info.categories) > $scope.average($scope.city2Info.categories)){
 				yelpAPI.retrieveYelp($scope.city1Basic.name + "," + $scope.city1Basic.admin1DivisionCode, function(data) {
@@ -45,6 +50,7 @@ angular.module('city-comp')
 			$scope.city1 = "";
 			$scope.city2 = "";
 		}
+		//check if the city is in database and get info if it is
 		autocomplete1.on('change', function(value) {
 			console.log(value);
 			$scope.city1Basic = value;
