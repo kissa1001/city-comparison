@@ -1,158 +1,11 @@
+                                                /**General styles**/
 body{
   background: linear-gradient(to left, rgba(236,233,230,0.8), rgba(255,255,255,0.8)),url("../img/background.jpg") ;
   font-family: 'Cutive', serif;   
 }
-.main{
-  background: #ECE9E6;
-  background: -webkit-linear-gradient(to left, #ECE9E6 , #FFFFFF); 
-  background: linear-gradient(to left, #ECE9E6 , #FFFFFF);
-  font-family: 'Cutive', serif;  
-}
-.header{
-  font-family: 'Niconne', cursive;
-  font-size: 6em;
-}
-.cities-input{
-  font-family: 'Cutive', serif;
-  padding-top: 2em;
-}
-.cities-input label{
-  font-size: 1.7em;
-}
-.button{
-  margin-top:2em;
-}
-.alert{
-  max-width: 500px;
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: 2em;
-}
-.my-btn{
-  width: 12em;
-  height: 4em;
-  margin-top: 2em;
-  font-family: 'Cutive', serif;
-  border:none;
-  color:#fff;
-  background: #FA5858;
-  transition-timing-function: linear;
-  -webkit-transition: 0.7s;
-  -moz-transition: 0.7s;
-  -ms-transition: 0.7s;
-  -o-transition: 0.7s;
-  transition: 0.7s;
-  opacity:0.9;
-}
-.my-btn:hover{
-  -webkit-transition: 0.5s;
-  -moz-transition: 0.5s;
-  -ms-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition: 0.5s;
-  opacity:1;
-  -moz-transform: translate(0px, -7px);
-  -webkit-transform: translate(0px, -7px);
-  -o-transform: translate(0px, -7px);
-  -ms-transform: translate(0px, -7px);
-  transform: translate(0px, -7px);
-}
-.cityName{
-  font-family: 'Niconne', cursive;
-  font-size: 2.5em;
-  background:rgba(236,233,230,1);
-}
-.population{
-  margin-top:1em;
-}
-.section-header{
-  font-family: 'Niconne', cursive;
-  font-size: 2em;
-  background:rgba(236,233,230,1);
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-}
-.avg-score{
-  color:#FA5858;
-}
-.places-box{
-  overflow: scroll;
-  width:auto;
-  height: 300px;
-}
-.photos-box{
-  overflow: scroll;
-  width:auto;
-  height: 500px;
-}
-.winner{
-  border-bottom: 1px solid #000;
-  border-top: 1px solid #000;
-  border-left: 1px solid #000;
-  border-right: 1px solid #000;
-  padding-top:1em;
-  padding-bottom: 1em;
-  padding-right:1em;
-  padding-left: 1em;
-}
-.summary{
-  font-family: 'Cutive', serif;  
-  text-align: center;
-  font-size: 1.5em;
-  margin-top: 2.2em;
-}
-.title{
-  font-size:1.2em;
-}
-
-.places-info{
-  margin-bottom: 0.5em;
-}
-.map{
-  margin-right: 0px;
-  margin-left: 0px;
-  padding-right: 0px;
-  padding-left: 0px;
-}
-.footer-first-page{
-  position:absolute;
-  bottom:1.5em;
-  left:0;
-  right:0;
-  font-family: 'Niconne', cursive;
-  font-size: 2em;
-}
-.footer i{
-  color:#FA5858;
-}
-.footer-second-page{
-  margin-top: 1em;
-  margin-bottom: 2.5em;
-  font-family: 'Niconne', cursive;
-  font-size: 2em;
-}
 body iframe{
   width:480px;
   height:390px;
-}
-.tp-autocomplete {
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 25em;
-}
-.tp-ac__input {
-  width: 100%;
-  border: none;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-  padding-left: 0.7em;
-  border-radius: 0;
-  background-color: #fafafa;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.35);
-  font-size: 1.3em;
-  -webkit-appearance: none;
-  text-overflow: ellipsis; 
 }
 .tp-ac__input::-webkit-input-placeholder {
   color: #ccc;
@@ -235,7 +88,6 @@ body iframe{
     transform: rotate(360deg); 
   } 
 }
-
 .spinner:before {
   position: absolute;
   top: 50%;
@@ -251,7 +103,157 @@ body iframe{
   border-top-color: rgba(0, 0, 0, 0.6);
   border-radius: 50%; 
 }
+.button{
+  margin-top:2em;
+}
+.my-btn{
+  width: 12em;
+  height: 4em;
+  margin-top: 2em;
+  font-family: 'Cutive', serif;
+  border:none;
+  color:#fff;
+  background: #FA5858;
+  transition-timing-function: linear;
+  -webkit-transition: 0.7s;
+  -moz-transition: 0.7s;
+  -ms-transition: 0.7s;
+  -o-transition: 0.7s;
+  transition: 0.7s;
+  opacity:0.9;
+}
+.my-btn:hover{
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  opacity:1;
+  -moz-transform: translate(0px, -7px);
+  -webkit-transform: translate(0px, -7px);
+  -o-transform: translate(0px, -7px);
+  -ms-transform: translate(0px, -7px);
+  transform: translate(0px, -7px);
+}
+.alert{
+  max-width: 500px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 2em;
+}
+.section-header{
+  font-family: 'Niconne', cursive;
+  font-size: 2em;
+  background:rgba(236,233,230,1);
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+.footer i{
+  color:#FA5858;
+}
+                                                        /**Front-page**/
+.header{
+  font-family: 'Niconne', cursive;
+  font-size: 6em;
+}
+.cities-input{
+  font-family: 'Cutive', serif;
+  padding-top: 2em;
+}
+.cities-input label{
+  font-size: 1.7em;
+}
+.footer-front-page{
+  position:absolute;
+  bottom:1.5em;
+  left:0;
+  right:0;
+  font-family: 'Niconne', cursive;
+  font-size: 2em;
+}
+                                                        /**Result-page**/
+.main{
+  background: #ECE9E6;
+  background: -webkit-linear-gradient(to left, #ECE9E6 , #FFFFFF); 
+  background: linear-gradient(to left, #ECE9E6 , #FFFFFF);
+  font-family: 'Cutive', serif;  
+}
+.cityName{
+  font-family: 'Niconne', cursive;
+  font-size: 2.5em;
+  background:rgba(236,233,230,1);
+}
+.population{
+  margin-top:1em;
+}
+.avg-score{
+  color:#FA5858;
+}
+.places-box{
+  overflow: scroll;
+  width:auto;
+  height: 300px;
+}
+.places-info{
+  margin-bottom: 0.5em;
+}
+.photos-box{
+  overflow: scroll;
+  width:auto;
+  height: 500px;
+}
+.winner{
+  border-bottom: 1px solid #000;
+  border-top: 1px solid #000;
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+  padding-top:1em;
+  padding-bottom: 1em;
+  padding-right:1em;
+  padding-left: 1em;
+}
+.summary{
+  font-family: 'Cutive', serif;  
+  text-align: center;
+  font-size: 1.5em;
+  margin-top: 2.2em;
+}
+.title{
+  font-size:1.2em;
+}
+.map{
+  margin-right: 0px;
+  margin-left: 0px;
+  padding-right: 0px;
+  padding-left: 0px;
+}
+.footer-result-page{
+  margin-top: 1em;
+  margin-bottom: 2.5em;
+  font-family: 'Niconne', cursive;
+  font-size: 2em;
+}
 
+.tp-autocomplete {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 25em;
+}
+.tp-ac__input {
+  width: 100%;
+  border: none;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-left: 0.7em;
+  border-radius: 0;
+  background-color: #fafafa;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.35);
+  font-size: 1.3em;
+  -webkit-appearance: none;
+  text-overflow: ellipsis; 
+}
+                                                        /**Media Queries**/
 @media only screen and (min-width : 320px) and (max-width: 500px) {
   .header{
     font-size:4em;
