@@ -8,7 +8,7 @@
 	<link href="css/style.css" rel="stylesheet">
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
-	<link href='https://fonts.googleapis.com/css?family=Niconne|Cutive' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Niconne|Cutive" rel="stylesheet" type="text/css">
 </head>
 <body ng-app="city-comp">
 	<div class="my-app" ng-controller = "mainCtrl">
@@ -17,7 +17,7 @@
 		</div>
 		<div class="row cities-input" ng-hide = "filledCity">
 			<div class="col-md-6">
-				<div class="form-group text-center">
+				<div class="form-group text-center" id="city1-input">
 					<label>City 1:</label>
 					<input type="text" class="my-input" name="field" ng-model="city1" placeholder="Charlotte,etc..." tabindex="1" autocomplete="off" required>
 				</div>
@@ -27,7 +27,7 @@
 				</div>
 			</div>
 			<div class="col-md-6">
-				<div class="city-form form-group text-center">
+				<div class="form-group text-center" id="city1-input">
 					<label>City 2:</label>
 					<input type="text" class="my-input1" ng-model="city2" name="field" placeholder="San Francisco,etc..." tabindex="1" autocomplete="off" required>
 				</div>
@@ -36,30 +36,30 @@
   					<strong>Sorry!</strong> This city is not in our database yet. Please pick another city to compare...
 				</div>
 			</div>
-			<div class="button text-center">
+			<div class="button compare-button text-center">
 				<button class="my-btn" ng-show="!filledCity&&validCity1&&validCity2" ng-click="compare()">Compare</button>
 			</div>
-			<div class="footer text-center">
+			<div class="footer footer-front-page text-center">
 				<p>Made with <i class="fa fa-heart" aria-hidden="true"></i> by Lina!</p>
 			</div>
 		</div>
 		<div class="main" ng-show="filledCity">
 			<div class="result container" >
 				<div class="maps">
-					<img class="img-responsive img-thumbnail map" src="{{city1Map}}" alt="city1Map">
-					<img class="img-responsive img-thumbnail map" src="https://maps.googleapis.com/maps/api/staticmap?size=640x250&maptype=roadmap\ &markers=size:mid%7Ccolor:red%7C{{city1Basic.name}},{{city1Basic.admin1DivisionCode}}%7C{{city2Basic.name}},{{city2Basic.admin1DivisionCode}}&key=AIzaSyBD1-sGnREhhLAout5UUgMw4CihhLJmGPA" alt="cityMap">
-					<img class="img-responsive img-thumbnail map" src="{{city2Map}}" alt="city2Map">
+					<img class="img-responsive img-thumbnail map" ng-src="{{city1Map || ''}}" alt="city1Map" >
+					<img class="img-responsive img-thumbnail map" ng-src="https://maps.googleapis.com/maps/api/staticmap?size=640x250&maptype=roadmap\ &markers=size:mid%7Ccolor:red%7C{{city1Basic.name || ''}},{{city1Basic.admin1DivisionCode || ''}}%7C{{city2Basic.name || ''}},{{city2Basic.admin1DivisionCode || ''}}&key=AIzaSyBD1-sGnREhhLAout5UUgMw4CihhLJmGPA" alt="cityMap">
+					<img class="img-responsive img-thumbnail map" ng-src="{{city2Map || ''}}" alt="city2Map">
 				</div>
 				<div class="row cityBasics">
 					<div class="col-sm-6 cityRes" id="city1">
 						<h2 class="cityName text-center">{{city1Basic.title}}</h2>
-						<img class="cityImg img-thumbnail img-responsive" src="{{city1Img}}" alt="city1Img">
+						<img class="cityImg img-thumbnail img-responsive" ng-src="{{city1Img || ''}}" alt="city1Img">
 						<p class = "population">Population: {{city1Basic.population}} people.</p>
 						<p ng-bind-html="renderHtml(city1Info.summary)"></p>
 					</div>
 					<div class="col-sm-6 cityRes" id="city2">
 						<h2 class="cityName text-center">{{city2Basic.title}}</h2>
-						<img class="cityImg img-thumbnail img-responsive" src="{{city2Img}}" alt="city1Img">
+						<img class="cityImg img-thumbnail img-responsive" ng-src="{{city2Img || ''}}" alt="city1Img">
 						<p class = "population">Population: {{city2Basic.population}} people.</p>
 						<p ng-bind-html="renderHtml(city2Info.summary)"></p>
 					</div>
@@ -98,7 +98,7 @@
 								<div class="col-sm-8 main-attributes">
 									<div class="row">
 										<div class="col-sm-offset-2 col-sm-2 media-ava">
-											<img class="img-thumbnail" src="{{place.image_url}}" alt="place-img">
+											<img class="img-thumbnail" ng-src="{{place.image_url || ''}}" alt="place-img">
 										</div>
 										<div class="col-sm-8 media-story">
 											<h5 class="title"><a href="{{place.url}}" target="_blank">{{place.name}}</a></h5>
@@ -149,10 +149,10 @@
 						</div>
 					</div>
 				</div>
-				<div class="button text-center">
+				<div class="button reset-button text-center">
 					<button class="my-btn" ng-show="filledCity" ng-click="reset()">Compare other cities <i class="fa fa-refresh fa-spin" aria-hidden="true"></i></button>
 				</div>
-				<div class="footer-second-page text-center">
+				<div class="footer footer-result-page text-center">
 					<p>Made with <i class="fa fa-heart" aria-hidden="true"></i> by Lina!</p>
 				</div>
 			</div>

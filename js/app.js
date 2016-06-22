@@ -1,8 +1,8 @@
-angular.module('city-comp',['ngSanitize']);
+angular.module("city-comp",["ngSanitize"]);
 
-angular.module('city-comp')
-.controller('mainCtrl',['$scope', 'autocomplete1', 'autocomplete2','teleportAPI','$sce','yelpAPI','flickrAPI','youtubeAPI',
-	function($scope, autocomplete1, autocomplete2, teleportAPI,$sce,yelpAPI,flickrAPI,youtubeAPI){
+angular.module("city-comp")
+.controller("mainCtrl",["$scope", "autocomplete1", "autocomplete2", "teleportAPI", "$sce", "yelpAPI", "flickrAPI", "youtubeAPI",
+	function($scope, autocomplete1, autocomplete2, teleportAPI, $sce, yelpAPI, flickrAPI, youtubeAPI){
 		//Helper functions and variables
 		$scope.embedUrl = "http://www.youtube.com/embed/";
 		$scope.renderHtml = function (htmlCode) {
@@ -31,7 +31,6 @@ angular.module('city-comp')
 			if($scope.average($scope.city1Info.categories) > $scope.average($scope.city2Info.categories)){
 				yelpAPI.retrieveYelp($scope.city1Basic.name + "," + $scope.city1Basic.admin1DivisionCode, function(data) {
 					$scope.winnerPlaces = data.businesses;
-					console.log($scope.winnerPlaces);
 					$scope.winner = $scope.city1Basic.name + "," + $scope.city1Basic.admin1DivisionCode;
 					$scope.looser = $scope.city2Basic.name + "," + $scope.city2Basic.admin1DivisionCode;
 				});
@@ -39,7 +38,6 @@ angular.module('city-comp')
 			else{
 				yelpAPI.retrieveYelp($scope.city2Basic.name + "," + $scope.city2Basic.admin1DivisionCode, function(data) {
 					$scope.winnerPlaces = data.businesses;
-					console.log($scope.winnerPlaces);
 					$scope.winner = $scope.city2Basic.name + "," + $scope.city2Basic.admin1DivisionCode;
 					$scope.looser = $scope.city1Basic.name + "," + $scope.city1Basic.admin1DivisionCode;
 				});
@@ -51,8 +49,7 @@ angular.module('city-comp')
 			$scope.city2 = "";
 		}
 		//check if the city is in database and get info if it is
-		autocomplete1.on('change', function(value) {
-			console.log(value);
+		autocomplete1.on("change", function(value) {
 			$scope.city1Basic = value;
 			if(value.uaSlug === undefined){
 				$scope.error1 = true;
@@ -62,27 +59,22 @@ angular.module('city-comp')
 			}
 			teleportAPI.getCityInfo(value.uaSlug).then(function(result){
 				$scope.city1Info = result;
-				console.log($scope.city1Info);
 			})
 
 			teleportAPI.getCityImg(value.uaSlug).then(function(result){
 				$scope.city1Img = result.photos[0].image.web;
-				console.log($scope.city1Img);
 			})
 			//Google Static Maps API
 			$scope.city1Map = "https://maps.googleapis.com/maps/api/staticmap?center=" + value.name + "," + value.admin1DivisionCode + "&zoom=10&size=230x250&roadmap&key=AIzaSyBD1-sGnREhhLAout5UUgMw4CihhLJmGPA";
 			flickrAPI.getPhotos(value.name + "," + value.admin1DivisionCode).then(function(response) {
 				$scope.city1Photos = response.photos.photo;
-				console.log ($scope.city1Photos);
 			})
 			youtubeAPI.getVideos(value.name + "," + value.admin1DivisionCode).then(function(res){
 				$scope.city1Videos = res.items;
-				console.log ($scope.city1Videos);
 			})
 		})
 
-		autocomplete2.on('change', function(value) {
-			console.log(value);
+		autocomplete2.on("change", function(value) {
 			$scope.city2Basic = value;
 			if(value.uaSlug === undefined){
 				$scope.error2 = true;
@@ -92,22 +84,18 @@ angular.module('city-comp')
 			}
 			teleportAPI.getCityInfo(value.uaSlug).then(function(result){
 				$scope.city2Info = result;
-				console.log($scope.city2Info);
 			})
 
 			teleportAPI.getCityImg(value.uaSlug).then(function(result){
 				$scope.city2Img = result.photos[0].image.web;
-				console.log($scope.city2Img);
 			})
 			//Google Static Maps API
 			$scope.city2Map = "https://maps.googleapis.com/maps/api/staticmap?center=" + value.name + "," + value.admin1DivisionCode + "&zoom=10&size=230x250&roadmap&key=AIzaSyBD1-sGnREhhLAout5UUgMw4CihhLJmGPA";
 			flickrAPI.getPhotos(value.name + "," + value.admin1DivisionCode).then(function(response) {
 				$scope.city2Photos = response.photos.photo;
-				console.log ($scope.city2Photos);
 			})
 			youtubeAPI.getVideos(value.name + "," + value.admin1DivisionCode).then(function(res){
 				$scope.city2Videos = res.items;
-				console.log ($scope.city2Videos);
 			})
 		})
 	}]);
