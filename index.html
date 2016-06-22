@@ -46,20 +46,20 @@
 		<div class="main" ng-show="filledCity">
 			<div class="result container" >
 				<div class="maps">
-					<img class="img-responsive img-thumbnail map" src="{{city1Map}}" alt="city1Map">
-					<img class="img-responsive img-thumbnail map" src="https://maps.googleapis.com/maps/api/staticmap?size=640x250&maptype=roadmap\ &markers=size:mid%7Ccolor:red%7C{{city1Basic.name}},{{city1Basic.admin1DivisionCode}}%7C{{city2Basic.name}},{{city2Basic.admin1DivisionCode}}&key=AIzaSyBD1-sGnREhhLAout5UUgMw4CihhLJmGPA" alt="cityMap">
-					<img class="img-responsive img-thumbnail map" src="{{city2Map}}" alt="city2Map">
+					<img class="img-responsive img-thumbnail map" ng-src="{{city1Map || ''}}" alt="city1Map" >
+					<img class="img-responsive img-thumbnail map" ng-src="https://maps.googleapis.com/maps/api/staticmap?size=640x250&maptype=roadmap\ &markers=size:mid%7Ccolor:red%7C{{city1Basic.name || ''}},{{city1Basic.admin1DivisionCode || ''}}%7C{{city2Basic.name || ''}},{{city2Basic.admin1DivisionCode || ''}}&key=AIzaSyBD1-sGnREhhLAout5UUgMw4CihhLJmGPA" alt="cityMap">
+					<img class="img-responsive img-thumbnail map" ng-src="{{city2Map || ''}}" alt="city2Map">
 				</div>
 				<div class="row cityBasics">
 					<div class="col-sm-6 cityRes" id="city1">
 						<h2 class="cityName text-center">{{city1Basic.title}}</h2>
-						<img class="cityImg img-thumbnail img-responsive" src="{{city1Img}}" alt="city1Img">
+						<img class="cityImg img-thumbnail img-responsive" ng-src="{{city1Img || ''}}" alt="city1Img">
 						<p class = "population">Population: {{city1Basic.population}} people.</p>
 						<p ng-bind-html="renderHtml(city1Info.summary)"></p>
 					</div>
 					<div class="col-sm-6 cityRes" id="city2">
 						<h2 class="cityName text-center">{{city2Basic.title}}</h2>
-						<img class="cityImg img-thumbnail img-responsive" src="{{city2Img}}" alt="city1Img">
+						<img class="cityImg img-thumbnail img-responsive" ng-src="{{city2Img || ''}}" alt="city1Img">
 						<p class = "population">Population: {{city2Basic.population}} people.</p>
 						<p ng-bind-html="renderHtml(city2Info.summary)"></p>
 					</div>
@@ -98,7 +98,7 @@
 								<div class="col-sm-8 main-attributes">
 									<div class="row">
 										<div class="col-sm-offset-2 col-sm-2 media-ava">
-											<img class="img-thumbnail" src="{{place.image_url}}" alt="place-img">
+											<img class="img-thumbnail" ng-src="{{place.image_url || ''}}" alt="place-img">
 										</div>
 										<div class="col-sm-8 media-story">
 											<h5 class="title"><a href="{{place.url}}" target="_blank">{{place.name}}</a></h5>
