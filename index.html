@@ -75,7 +75,7 @@
 								</div>
 							</div>
 						</div>
-						<h4 class="avg-score" ng-class="{"winner":average(city1Info.categories)>average(city2Info.categories)}">Average score: {{average(city1Info.categories)}}</h4>
+						<h4 class="avg-score" ng-class="{'winner':average(city1Info.categories)>average(city2Info.categories)}">Average score: {{average(city1Info.categories)}}</h4>
 					</div>
 					<div class="col-sm-6">
 						<div class="stats" ng-repeat="score in city2Info.categories track by $index">
@@ -86,7 +86,7 @@
 								</div>
 							</div>
 						</div>
-						<h4 class="avg-score" ng-class="{"winner":average(city2Info.categories)>average(city1Info.categories)}">Average score: {{average(city2Info.categories)}}</h4>
+						<h4 class="avg-score" ng-class="{'winner':average(city2Info.categories)>average(city1Info.categories)}">Average score: {{average(city2Info.categories)}}</h4>
 					</div>
 				</div>
 				<h4 class="summary">Due to statistics of teleport.org {{winner}} is better city than {{looser}}!</h4>

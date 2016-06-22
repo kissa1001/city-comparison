@@ -1,8 +1,8 @@
-angular.module('city-comp',['ngSanitize']);
+angular.module("city-comp",["ngSanitize"]);
 
-angular.module('city-comp')
-.controller('mainCtrl',['$scope', 'autocomplete1', 'autocomplete2','teleportAPI','$sce','yelpAPI','flickrAPI','youtubeAPI',
-	function($scope, autocomplete1, autocomplete2, teleportAPI,$sce,yelpAPI,flickrAPI,youtubeAPI){
+angular.module("city-comp")
+.controller("mainCtrl",["$scope", "autocomplete1", "autocomplete2", "teleportAPI", "$sce", "yelpAPI", "flickrAPI", "youtubeAPI",
+	function($scope, autocomplete1, autocomplete2, teleportAPI, $sce, yelpAPI, flickrAPI, youtubeAPI){
 		//Helper functions and variables
 		$scope.embedUrl = "http://www.youtube.com/embed/";
 		$scope.renderHtml = function (htmlCode) {
@@ -51,7 +51,7 @@ angular.module('city-comp')
 			$scope.city2 = "";
 		}
 		//check if the city is in database and get info if it is
-		autocomplete1.on('change', function(value) {
+		autocomplete1.on("change", function(value) {
 			console.log(value);
 			$scope.city1Basic = value;
 			if(value.uaSlug === undefined){
@@ -81,7 +81,7 @@ angular.module('city-comp')
 			})
 		})
 
-		autocomplete2.on('change', function(value) {
+		autocomplete2.on("change", function(value) {
 			console.log(value);
 			$scope.city2Basic = value;
 			if(value.uaSlug === undefined){
