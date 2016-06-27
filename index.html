@@ -96,7 +96,7 @@
 				<div class="row cityPhotos">
 					<h3 class="section-header text-center">Photos</h3>
 					<div class="col-sm-6 photos-box">
-						<h4 class="photos-city-name">{{city1Basic.title}}</h4>
+						<h4 class="box-city-name">{{city1Basic.title}}</h4>
 						<div ng-repeat="photo in city1Photos" class="inline-block">
 							<img class="img-responsive img-thumbnail" ng-src="https://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}.jpg" alt="city1Photos">
 						</div>
@@ -110,14 +110,14 @@
 				</div>
 				<div class="row cityVideos">
 					<h3 class="section-header text-center">Videos</h3>
-					<div class="col-sm-6 photos-box">
-						<h4 class="photos-city-name">{{city1Basic.title}}</h4>
+					<div class="col-sm-6 videos-box">
+						<h4 class="videos-city-name">{{city1Basic.title}}</h4>
 						<div ng-repeat="video in city1Videos">
 							<iframe class="embed-responsive-item" ng-src="{{ trustSrc(embedUrl + video.id.videoId) }}" frameborder="1"></iframe>
 						</div>
 					</div>
 					<div class="col-sm-6 photos-box">
-						<h4 class="photos-city-name">{{city2Basic.title}}</h4>
+						<h4 class="box-city-name">{{city2Basic.title}}</h4>
 						<div ng-repeat="video in city2Videos">
 							<iframe class="embed-responsive-item" ng-src="{{ trustSrc(embedUrl + video.id.videoId) }}" frameborder="1"></iframe>
 						</div>
