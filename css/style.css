@@ -215,17 +215,31 @@ body iframe{
   color:#FA5858;
 }
 .places-box{
-  overflow-y: scroll;
+  overflow-y: hidden;
   width:auto;
   height: 300px;
+}
+.places-box:hover{
+  overflow-y: scroll;
 }
 .places-info{
   margin-bottom: 0.5em;
 }
 .photos-box{
-  overflow-y: scroll;
+  overflow-y: hidden;
   width:auto;
   height: 500px;
+}
+.photos-box:hover{
+  overflow-y: scroll;
+}
+.videos-box{
+  overflow-y: hidden;
+  width:auto;
+  height: 500px;
+}
+.videos-box:hover{
+  overflow-y: scroll;
 }
 .winner{
   border-bottom: 1px solid #000;
