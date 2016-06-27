@@ -44,9 +44,7 @@ angular.module("city-comp")
 			}
 		}
 		$scope.reset = function(){
-			$scope.filledCity = false;
-			$scope.city1 = "";
-			$scope.city2 = "";
+			location.reload();
 		}
 		//check if the city is in database and get info if it is
 		autocomplete1.on("change", function(value) {
@@ -56,6 +54,7 @@ angular.module("city-comp")
 			}
 			else{
 				$scope.validCity1 = true;
+				$scope.error1 = false;
 			}
 			teleportAPI.getCityInfo(value.uaSlug).then(function(result){
 				$scope.city1Info = result;
@@ -81,6 +80,7 @@ angular.module("city-comp")
 			}
 			else{
 				$scope.validCity2 = true;
+				$scope.error2 = false;
 			}
 			teleportAPI.getCityInfo(value.uaSlug).then(function(result){
 				$scope.city2Info = result;
