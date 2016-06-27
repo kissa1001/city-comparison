@@ -4,7 +4,7 @@ body{
   font-family: 'Cutive', serif;   
 }
 body iframe{
-  width:480px;
+  width:510px;
   height:390px;
 }
 .tp-ac__input::-webkit-input-placeholder {
@@ -151,6 +151,31 @@ body iframe{
 .footer i{
   color:#FA5858;
 }
+                                                      /*Scrollbar*/
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.3); 
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+}
+/*Track piece*/
+::-webkit-scrollbar-track-piece{
+  background:none;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  background: #6E6E6E; 
+  -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,0.5); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(255,0,0,0.4); 
+}
                                                         /**Front-page**/
 .header{
   font-family: 'Niconne', cursive;
@@ -190,7 +215,7 @@ body iframe{
   color:#FA5858;
 }
 .places-box{
-  overflow: scroll;
+  overflow-y: scroll;
   width:auto;
   height: 300px;
 }
@@ -198,7 +223,7 @@ body iframe{
   margin-bottom: 0.5em;
 }
 .photos-box{
-  overflow: scroll;
+  overflow-y: scroll;
   width:auto;
   height: 500px;
 }
@@ -287,6 +312,10 @@ body iframe{
   }
   .places-info.secondary-attributes{
     margin-top:10px;
+  }
+  body iframe{
+    width:350px;
+    height:auto;
   }
 }
 @media only screen and (min-width : 768px) and (max-width: 1024px) {
